@@ -10,12 +10,11 @@ class CardContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 200,horizontal: 50),
+      padding: EdgeInsets.symmetric(horizontal: 50),
       
       child: Container(
           width: double.infinity,
-          padding: EdgeInsets.all(20), 
-          height: 300,     
+          padding: EdgeInsets.all(20),   
           decoration: _boxDecoration(),
           child: this.child,
           

@@ -12,6 +12,7 @@ class LoginScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                SizedBox(height: 150,),
                CardContainer(
                 child:Column(
                 children: [
@@ -52,22 +53,10 @@ class _LoginForm extends StatelessWidget {
                 
                 autocorrect: false,
                 keyboardType: TextInputType.emailAddress,               
-                decoration:InputDecoration(
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.deepOrange
-                    ),
-                     ),
-                     focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.orange,
-                        width: 2,
-                      ),
-                     ),
-                      hintText: 'email',
-                     labelText: 'Correo electronico',
-                     labelStyle: TextStyle(color: Colors.grey),
-                     prefixIcon: Icon(Icons.alternate_email),
+                decoration: InputDecorations.obInputDecoration(
+                  hintText: 'juanperez@gmail.com',
+                  labelText: 'Correo electronico',
+                  prefixIcon: Icons.alternate_email_rounded,
                 ),
 
                 validator: (value){
@@ -82,20 +71,10 @@ class _LoginForm extends StatelessWidget {
                 autocorrect: false,
                 obscureText: true,
                 keyboardType: TextInputType.emailAddress,    
-                decoration: InputDecoration(
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.deepOrange
-                    ),
-                     ),
-                     focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.orange,
-                        width: 2,
-                      ),
-                     ),
-                    
-
+                decoration: InputDecorations.obInputDecoration(
+                  labelText: 'Contraseña',
+                  hintText: '*********',
+                  prefixIcon: Icons.lock,
                 ),
                 
             
@@ -104,7 +83,9 @@ class _LoginForm extends StatelessWidget {
                   :'La contraseña debe de ser de 6 caracteres';
                 },                 
               ),
+
               SizedBox(height: 25,),
+
               MaterialButton(
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                   disabledColor: Colors.grey,
@@ -117,7 +98,7 @@ class _LoginForm extends StatelessWidget {
                   ),
 
                 onPressed: () async{
-          
+                    
                 }
                 )         
 
@@ -126,5 +107,33 @@ class _LoginForm extends StatelessWidget {
         
         ),
     );
+  }
+}
+
+//para los inputs del formulario
+class InputDecorations {
+  static InputDecoration obInputDecoration({
+    required String hintText,
+    required String labelText,
+    IconData? prefixIcon,
+  }){
+    return InputDecoration(
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.deepOrange
+                    ),
+                     ),
+                     focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.red,
+                        width: 2,
+                      ),
+                     ),
+                      hintText: hintText,
+                     labelText: labelText,
+                     labelStyle: TextStyle(color: Colors.grey),
+                     prefixIcon: prefixIcon != null ? Icon(prefixIcon, color: Colors.red[100]) : null,
+                );
+
   }
 }

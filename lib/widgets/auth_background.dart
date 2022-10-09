@@ -22,7 +22,7 @@ class AuthBackground extends StatelessWidget {
               Container(
                 padding: EdgeInsets.only(),
                 height: 100,
-                child:Image.asset('assets/logo.png', height: 150,),
+                child:Image.asset('assets/logorh.png', height: 30, width: 80,),
               )
         ],
         
