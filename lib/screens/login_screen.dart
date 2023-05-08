@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:si2_rrhh/screens/home_screnn.dart';
 import 'package:si2_rrhh/widgets/widgets.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -44,7 +45,7 @@ class _LoginForm extends StatelessWidget {
 
     return Container(
       child: Form(
-      //  autovalidateMode: AutovalidateMode.onUserInteraction,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
       //  key: loginForm.formKey,
 
         child: Column(
@@ -98,7 +99,8 @@ class _LoginForm extends StatelessWidget {
                   ),
 
                 onPressed: () async{
-                    
+                    FocusScope.of(context).unfocus();
+                    Navigator.pushReplacementNamed(context, 'home');
                 }
                 )         
 
